@@ -78,8 +78,8 @@ define('LEGAL_EFFECTIVE_DATE', sl_env('LEGAL_EFFECTIVE_DATE', '[Effective date â
  *  Analytics / tracking IDs  (public by design; leave blank to disable)
  *  Set exactly ONE Google path: GTM_ID  *or*  GA4_MEASUREMENT_ID.
  * ------------------------------------------------------------------ */
-define('GTM_ID',            sl_env('GTM_ID', ''));               // e.g. GTM-XXXXXXX
-define('GA4_MEASUREMENT_ID', sl_env('GA4_MEASUREMENT_ID', ''));  // e.g. G-XXXXXXXXXX
+define('GTM_ID',            sl_env('GTM_ID', ''));                          // e.g. GTM-XXXXXXX
+define('GA4_MEASUREMENT_ID', sl_env('GA4_MEASUREMENT_ID', 'G-YN3BBVXKRV')); // JSinnovation SoloLedge GA4 property
 define('META_PIXEL_ID',     sl_env('META_PIXEL_ID', ''));        // e.g. 123456789012345
 
 // Google Search Console meta-tag token (leave blank until you have it).
