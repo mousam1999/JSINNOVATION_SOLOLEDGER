@@ -25,6 +25,9 @@
         <li><a href="/terms.php">Terms</a></li>
         <li><a href="/refund.php">Refund Policy</a></li>
         <li><a href="/license.php">License</a></li>
+<?php if ((defined('GA4_MEASUREMENT_ID') && GA4_MEASUREMENT_ID !== '') || (defined('GTM_ID') && GTM_ID !== '') || (defined('META_PIXEL_ID') && META_PIXEL_ID !== '')): ?>
+        <li><a href="/privacy.php#cookies" data-consent-reopen>Cookie preferences</a></li>
+<?php endif; ?>
       </ul>
     </nav>
 
@@ -46,5 +49,6 @@
     </p>
   </div>
 </footer>
+<?php require __DIR__ . '/consent.php'; ?>
 </body>
 </html>

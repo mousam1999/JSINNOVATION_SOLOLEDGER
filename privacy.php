@@ -28,13 +28,13 @@ require __DIR__ . '/includes/header.php';
     <h2>4. Checkout and payment</h2>
     <p>When you click "Get SoloLedge" you are taken to <strong>SuperProfile</strong>, a third-party platform that handles the checkout, payment and delivery of the product. Any information you enter there (name, email, payment details) is collected and controlled by SuperProfile and its payment partners under their own privacy policies, not this one. We receive only the order and contact information SuperProfile shares with us to fulfil and support your purchase.</p>
 
-    <h2>5. Cookies and tracking</h2>
+    <h2 id="cookies">5. Cookies and tracking</h2>
     <p>The Site uses:</p>
     <ul>
-      <li><strong>Essential</strong> — a small amount of local browser storage to remember interface state (for example, whether you have opened an FAQ item). No tracking.</li>
+      <li><strong>Essential</strong> — a small amount of local browser storage to remember interface state (for example, whether you have opened an FAQ item, and your cookie choice). No tracking.</li>
       <li><strong>Analytics &amp; advertising</strong> — Google Analytics 4 and Meta Pixel cookies, as described above.</li>
     </ul>
-    <p>You can control cookies through your browser settings, and you can opt out of these specific tools using Google's <a href="https://tools.google.com/dlpage/gaoptout" rel="noopener nofollow">Analytics opt-out add-on</a> and your Meta <a href="https://www.facebook.com/settings?tab=ads" rel="noopener nofollow">ad preferences</a>. We are introducing an on-site consent control that lets you accept or decline analytics and advertising cookies; until it is live, these tools load when you visit and you can decline them by the methods just described.</p>
+    <p>When you first visit the Site we show a cookie banner. Analytics and advertising cookies are <strong>not set and no analytics or advertising request is made until you choose "Accept"</strong>. If you choose "Decline non-essential", those tools are never loaded. You can change your choice at any time using the <a href="/privacy.php#cookies" data-consent-reopen>Cookie preferences</a> link in the site footer, and you can also use your browser settings, Google's <a href="https://tools.google.com/dlpage/gaoptout" rel="noopener nofollow">Analytics opt-out add-on</a> and your Meta <a href="https://www.facebook.com/settings?tab=ads" rel="noopener nofollow">ad preferences</a>.</p>
 
     <h2>6. Sharing and international transfer</h2>
     <p>We share data only with the service providers that make the Site work: Google (analytics), Meta (advertising measurement), Hostinger (hosting) and SuperProfile (checkout). Each processes it under its own terms. Some of these providers are located outside India and may process data on servers outside India. <strong>We do not sell your personal data</strong>, and we do not share it for any purpose other than those described here.</p>

@@ -405,3 +405,33 @@ body.has-sticky-cta { padding-bottom: 80px; }
   * { animation-duration: .001ms !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
   [data-reveal] { opacity: 1; transform: none; }
 }
+
+/* 9. COOKIE CONSENT ------------------------------------------------------- */
+.consent {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  box-shadow: 0 -14px 44px -22px rgba(0, 0, 0, .85);
+  padding: 1rem 1.25rem calc(1rem + env(safe-area-inset-bottom));
+  transform: translateY(110%);
+  transition: transform .32s var(--ease);
+}
+.consent.is-visible { transform: translateY(0); }
+.consent__inner {
+  display: flex; align-items: center; gap: 1.5rem;
+  max-width: var(--container); margin-inline: auto;
+}
+.consent__text {
+  margin: 0; color: var(--text-2);
+  font-size: .9rem; line-height: 1.55;
+}
+.consent__text a { color: var(--accent); }
+.consent__text a:hover { color: var(--accent-hover); }
+.consent__actions { display: flex; gap: .6rem; flex: none; }
+@media (max-width: 720px) {
+  .consent__inner { flex-direction: column; align-items: stretch; gap: .9rem; }
+  .consent__actions .btn { flex: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .consent { transition: none; }
+}

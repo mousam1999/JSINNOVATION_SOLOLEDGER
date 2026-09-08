@@ -68,40 +68,28 @@ $canonical    = sl_url($PAGE_PATH === '/' ? '' : ltrim($PAGE_PATH, '/'));
 <noscript><link rel="stylesheet"
   href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"></noscript>
 
-<link rel="stylesheet" href="/css/main.css?v=3">
+<link rel="stylesheet" href="/css/main.css?v=4">
 
 <?php if (!empty($PAGE_JSONLD)) echo $PAGE_JSONLD; ?>
 <?php if (!empty($EXTRA_HEAD)) echo $EXTRA_HEAD; ?>
 
-<?php /* -------- Analytics: single source of truth -------- */ ?>
-<?php if (GTM_ID !== ''): ?>
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
-var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;
-j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','<?= e(GTM_ID) ?>');</script>
-<?php elseif (GA4_MEASUREMENT_ID !== ''): ?>
-<script async src="https://www.googletagmanager.com/gtag/js?id=<?= e(GA4_MEASUREMENT_ID) ?>"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-gtag('js',new Date());gtag('config','<?= e(GA4_MEASUREMENT_ID) ?>');</script>
-<?php endif; ?>
-<?php if (META_PIXEL_ID !== ''): ?>
-<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');fbq('init','<?= e(META_PIXEL_ID) ?>');fbq('track','PageView');</script>
-<noscript><img height="1" width="1" style="display:none" alt=""
-  src="https://www.facebook.com/tr?id=<?= e(META_PIXEL_ID) ?>&ev=PageView&noscript=1"></noscript>
-<?php endif; ?>
-
+<?php /* -------- Analytics / advertising --------
+   The GA4, GTM and Meta Pixel tags are NOT loaded here. js/consent.js loads
+   them only after the visitor accepts cookies (or has previously accepted).
+   No analytics or advertising request is made before that. -------- */ ?>
 <script>
-  // Expose public config to the tracking helper (js/analytics.js).
   window.SL_CONFIG = {
     checkoutUrl: <?= json_encode(SUPERPROFILE_CHECKOUT_URL) ?>,
     hasPixel: <?= META_PIXEL_ID !== '' ? 'true' : 'false' ?>,
     hasGA: <?= (GTM_ID !== '' || GA4_MEASUREMENT_ID !== '') ? 'true' : 'false' ?>
   };
+  window.SL_CONSENT = {
+    ga4:   <?= json_encode(GA4_MEASUREMENT_ID) ?>,
+    gtm:   <?= json_encode(GTM_ID) ?>,
+    pixel: <?= json_encode(META_PIXEL_ID) ?>
+  };
 </script>
+<script src="/js/consent.js?v=1" defer></script>
 <script src="/js/main.js?v=3" defer></script>
 </head>
 <body class="<?= e($BODY_CLASS) ?>">
