@@ -30,9 +30,17 @@ RedirectMatch 404 ^/(includes|\.git|\.github)(/.*)?$
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
   Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains" env=HTTPS
-  # CSP: allows Google fonts, GA4/GTM and Meta Pixel. Inline scripts are used
-  # for the tag bootstraps, so 'unsafe-inline' is permitted for scripts.
-  Header always set Content-Security-Policy "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com https://www.facebook.com https://region1.google-analytics.com; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://connect.facebook.net; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com https://connect.facebook.net https://www.facebook.com; frame-src https://www.googletagmanager.com; form-action 'self'"
+  # CSP: allows Google fonts, GA4/GTM, Meta Pixel and the Cloudflare/Hostinger
+  # edge analytics beacon. Inline scripts are used for the tag bootstraps, so
+  # 'unsafe-inline' is permitted for scripts.
+  Header always set Content-Security-Policy "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com https://www.facebook.com https://region1.google-analytics.com; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://connect.facebook.net https://static.cloudflareinsights.com; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com https://connect.facebook.net https://www.facebook.com https://cloudflareinsights.com; frame-src https://www.googletagmanager.com; form-action 'self'"
+</IfModule>
+
+# ---- MIME types ----
+<IfModule mod_mime.c>
+  AddType application/manifest+json .webmanifest
+  AddType text/javascript .js
+  AddType image/webp .webp
 </IfModule>
 
 # ---- Compression ----
@@ -50,10 +58,16 @@ RedirectMatch 404 ^/(includes|\.git|\.github)(/.*)?$
   ExpiresByType text/css                  "access plus 1 month"
   ExpiresByType application/javascript    "access plus 1 month"
   ExpiresByType image/svg+xml             "access plus 1 month"
-  ExpiresDefault                          "access plus 2 days"
+  ExpiresByType application/manifest+json "access plus 1 week"
+  # HTML / PHP responses: always revalidate so config, pricing and copy
+  # changes are seen immediately.
+  ExpiresByType text/html                 "access plus 0 seconds"
 </IfModule>
 <IfModule mod_headers.c>
   <FilesMatch "\.(webp|png|jpe?g|ico|css|js|svg)$">
     Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+  <FilesMatch "\.php$">
+    Header set Cache-Control "no-cache, must-revalidate"
   </FilesMatch>
 </IfModule>
