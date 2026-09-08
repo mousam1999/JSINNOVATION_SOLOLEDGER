@@ -15,7 +15,7 @@ require __DIR__ . '/includes/header.php';
     <ul>
       <li>Run <strong>one instance</strong> of the application for your own personal or business use.</li>
       <li>Modify the source code for your own use — features, branding and design.</li>
-      <li>Deploy the modified or unmodified software on infrastructure you own or control (self-hosted, or a cloud provider you have an account with).</li>
+      <li>Deploy the modified or unmodified software on infrastructure you own or control (self-hosted, or a cloud provider you have an account with, such as Vercel and Supabase).</li>
       <li>Use it to serve your own clients as part of your own business — provided the software itself is not what you are selling or licensing to them.</li>
     </ul>
 
@@ -28,7 +28,7 @@ require __DIR__ . '/includes/header.php';
     </ul>
 
     <h2>Ownership</h2>
-    <p>This purchase is a licence to use the source code. <strong>It is not a transfer of ownership.</strong> <?= e(PARENT_BRAND) ?> retains all copyright and intellectual-property rights in the software, its design and its original branding. Your own data always belongs to you.</p>
+    <p>This purchase is a licence to use the source code. <strong>It is not a transfer of ownership.</strong> <?= e(LEGAL_ENTITY_NAME) ?> (trading as <?= e(PARENT_BRAND) ?>) retains all copyright and intellectual-property rights in the software, its design and its "SoloLedge" and "<?= e(PARENT_BRAND) ?>" branding. Your own business data always belongs to you.</p>
 
     <h2>Support, warranty and liability</h2>
     <p>Support is limited and time-bound — see <a href="/support.php">Support</a>. The software is provided "as is" with no warranty. It is a financial tracking and planning tool, not accounting, tax-filing or GST-filing software, and not a substitute for a qualified professional. Total liability is capped at the amount you paid.</p>
@@ -39,7 +39,8 @@ require __DIR__ . '/includes/header.php';
     <h2>Third-party components</h2>
     <p>The software depends on third-party open-source packages and services (see <code>package.json</code> and <code>docs/TECH_STACK.md</code>). Each is governed by its own licence or terms, which you are responsible for reviewing and complying with.</p>
 
-    <p class="callout">The bundled <code>LICENSE.md</code> notes it is a template that a lawyer should review and adapt (including inserting a governing-law clause) before being relied upon for a commercial sale.</p>
+    <h2>Governing terms</h2>
+    <p>The complete licence is included as <code>LICENSE.md</code> in your package and is the authoritative version — read it before you deploy or modify the software. Your purchase and use of the product are also subject to our <a href="/terms.php">Terms</a>, which are governed by the laws of India.</p>
 
     <p><a href="/terms.php">Terms</a> · <a href="/refund.php">Refund Policy</a> · <a href="/privacy.php">Privacy</a></p>
   </div>

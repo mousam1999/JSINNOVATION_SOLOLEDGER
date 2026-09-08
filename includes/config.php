@@ -61,18 +61,21 @@ define('SUPERPROFILE_CHECKOUT_URL', sl_env(
 
 /* ------------------------------------------------------------------ *
  *  Contact / support
- *  >>> REPLACE with the real, monitored support inbox <<<
+ *  Must be an inbox that is actually monitored — the site promises
+ *  7-day setup support at this address.
  * ------------------------------------------------------------------ */
 define('SUPPORT_EMAIL', sl_env('SUPPORT_EMAIL', 'support@jsinnovation.in'));
 
 /* ------------------------------------------------------------------ *
- *  Legal entity details — used in the legal pages.
- *  >>> REPLACE all four before publishing the legal pages <<<
+ *  Seller details — used in the legal pages, footer and schema.
+ *  The seller is an individual freelancer publishing digital products
+ *  under the brand name "JSinnovation" (no registered company).
  * ------------------------------------------------------------------ */
-define('LEGAL_ENTITY_NAME',   sl_env('LEGAL_ENTITY_NAME',   'JSinnovation [registered legal name — REPLACE]'));
-define('LEGAL_ENTITY_ADDR',   sl_env('LEGAL_ENTITY_ADDR',   '[Registered business address — REPLACE]'));
-define('LEGAL_JURISDICTION',  sl_env('LEGAL_JURISDICTION',  '[State], India — REPLACE'));
-define('LEGAL_EFFECTIVE_DATE', sl_env('LEGAL_EFFECTIVE_DATE', '[Effective date — REPLACE]'));
+define('LEGAL_ENTITY_NAME',   sl_env('LEGAL_ENTITY_NAME',   'Mousam Ravariya'));
+define('LEGAL_ENTITY_TYPE',   sl_env('LEGAL_ENTITY_TYPE',   'an individual freelancer trading as "JSinnovation"'));
+define('LEGAL_ENTITY_ADDR',   sl_env('LEGAL_ENTITY_ADDR',   'Disha, SVP Nagar, 4 Bungalows, Andheri West, Mumbai 400053, Maharashtra, India'));
+define('LEGAL_JURISDICTION',  sl_env('LEGAL_JURISDICTION',  'Maharashtra, India'));
+define('LEGAL_EFFECTIVE_DATE', sl_env('LEGAL_EFFECTIVE_DATE', '8 September 2026'));
 
 /* ------------------------------------------------------------------ *
  *  Analytics / tracking IDs  (public by design; leave blank to disable)

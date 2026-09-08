@@ -38,7 +38,7 @@
   </div>
 
   <div class="container site-footer__legal">
-    <p>&copy; <?= date('Y') ?> <?= e(PARENT_BRAND) ?>. SoloLedge <?= e(PRODUCT_VERSION) ?>. All rights reserved.</p>
+    <p>&copy; <?= date('Y') ?> <?= e(LEGAL_ENTITY_NAME) ?> (trading as <?= e(PARENT_BRAND) ?>). SoloLedge <?= e(PRODUCT_VERSION) ?>. All rights reserved.</p>
     <p class="site-footer__disclaimer">
       SoloLedge is a financial tracking and planning tool. It is not accounting, tax,
       GST-filing or legal software, and it is not a substitute for advice from a
