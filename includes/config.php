@@ -56,7 +56,7 @@ define('PRICE_CURRENCY_CODE', 'INR');
  * ------------------------------------------------------------------ */
 define('SUPERPROFILE_CHECKOUT_URL', sl_env(
     'SUPERPROFILE_CHECKOUT_URL',
-    'https://superprofile.bio/REPLACE-WITH-YOUR-SOLOLEDGE-CHECKOUT'
+    'https://superprofile.bio/vp/sololedge-v1'
 ));
 
 /* ------------------------------------------------------------------ *
