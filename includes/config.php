@@ -80,7 +80,7 @@ define('LEGAL_EFFECTIVE_DATE', sl_env('LEGAL_EFFECTIVE_DATE', '[Effective date â
  * ------------------------------------------------------------------ */
 define('GTM_ID',            sl_env('GTM_ID', ''));                          // e.g. GTM-XXXXXXX
 define('GA4_MEASUREMENT_ID', sl_env('GA4_MEASUREMENT_ID', 'G-YN3BBVXKRV')); // JSinnovation SoloLedge GA4 property
-define('META_PIXEL_ID',     sl_env('META_PIXEL_ID', ''));        // e.g. 123456789012345
+define('META_PIXEL_ID',     sl_env('META_PIXEL_ID', '874542795145215')); // JSinnovation SoloLedge Meta Pixel
 
 // Google Search Console meta-tag token (leave blank until you have it).
 define('GSC_VERIFICATION', sl_env('GSC_VERIFICATION', ''));
