@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /thank-you.php
+Disallow: /includes/
+
+Sitemap: https://sololedge.jsinnovation.in/sitemap.xml

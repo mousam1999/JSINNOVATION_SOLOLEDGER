@@ -1,0 +1,52 @@
+name: Deploy to Hostinger
+
+# Auto-deploys the site on every push to `main`.
+# This is the ALTERNATIVE to Hostinger's built-in Git integration
+# (hPanel -> Advanced -> GIT). Use one or the other, not both.
+#
+# Required repository secrets (Settings -> Secrets and variables -> Actions):
+#   FTP_SERVER    e.g. ftp://123.45.67.89   or  ftp.your-domain
+#   FTP_USERNAME  the FTP account username from hPanel -> Files -> FTP Accounts
+#   FTP_PASSWORD  that FTP account's password
+# Optional repository variable:
+#   FTP_TARGET_DIR  server directory to publish into (default: public_html/)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+concurrency:
+  group: deploy-hostinger
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Upload via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          # Path on the server. Must end with a slash.
+          server-dir: ${{ vars.FTP_TARGET_DIR || 'public_html/' }}
+          # Local folder to publish (repo root).
+          local-dir: ./
+          # Keep the server tidy but never touch a hand-uploaded .env.
+          dangerous-clean-slate: false
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.github/**
+            **/README.md
+            **/.env
+            **/.env.example
+            **/.gitignore
+            **/*.md
+            **/node_modules/**
+            **/.DS_Store
