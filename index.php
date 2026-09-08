@@ -2,13 +2,13 @@
 require_once __DIR__ . '/includes/config.php';
 
 $PAGE_TITLE = 'SoloLedge — Self-Hosted Finance OS for Freelancers';
-$PAGE_DESC  = 'SoloLedge is a self-hosted finance OS for freelancers: invoices, payments, expenses, cash flow and safe-to-spend in one system. One-time purchase — get the source code and deploy it on your own infrastructure. ' . sl_price_launch() . '.';
+$PAGE_DESC  = 'SoloLedge is a self-hosted finance OS for freelancers: invoices, payments, expenses, cash flow and safe-to-spend in one system. One-time purchase — get the source code and deploy it on your own cloud accounts. ' . sl_price_launch() . '.';
 $PAGE_PATH  = '/';
 $BODY_CLASS = 'page-home has-sticky-cta';
 $CHECKOUT   = SUPERPROFILE_CHECKOUT_URL;
 
 $faqs = [
-  ['What is SoloLedge?', 'SoloLedge is a self-hosted finance workspace for freelancers and independent professionals. It brings billing, payments received, outstanding invoices, expenses, TDS/GST records and cash-flow planning into one place, including a "safe to spend" estimate based on the numbers you enter. It is a tracking and planning tool — not accounting, tax-filing or GST-filing software.'],
+  ['What is SoloLedge?', 'SoloLedge is a self-hosted finance workspace for freelancers and independent professionals. It brings billing, payments received, outstanding invoices, expenses, TDS/GST records and cash-flow planning into one place, including a "safe to spend" estimate based on the numbers you enter. It is a tracking and planning tool — not accounting, tax-filing or GST-filing software. SoloLedge V1.0.0 is the product name for the application; some in-app screens and files still use its original working title, "Freelancer Finance OS".'],
   ['Who is SoloLedge for?', 'Freelancers, consultants and solo professionals — especially those working in India who also invoice international clients. It is built for one person managing their own finances, not for teams or agencies with multiple staff logins.'],
   ['Is this a SaaS subscription?', 'No. There is no subscription and no recurring fee. You pay once and receive the SoloLedge V1.0.0 source-code package and documentation.'],
   ['Is this a one-time purchase?', 'Yes. One payment of ' . sl_price_launch() . ' during the launch offer (regular price ' . sl_price_regular() . '). You then deploy SoloLedge yourself.'],
@@ -72,7 +72,7 @@ require __DIR__ . '/includes/header.php';
     <div class="hero__copy">
       <span class="badge badge--accent"><span class="badge__dot"></span> SoloLedge <?= e(PRODUCT_VERSION) ?> · Public launch offer</span>
       <h1>Your finances shouldn't live across five spreadsheets.</h1>
-      <p class="hero__sub">SoloLedge brings freelancer financial management — invoices, payments, expenses, cash flow and what you can safely spend — into one self-hosted system you run yourself.</p>
+      <p class="hero__sub">SoloLedge brings freelancer financial management — invoices, payments, expenses, cash flow and what you can safely spend — into one system you deploy and run on your own cloud accounts.</p>
       <div class="hero__actions">
         <a class="btn btn--primary btn--lg" href="<?= e($CHECKOUT) ?>" data-cta="hero_primary" rel="noopener"><?= e(sl_cta_label()) ?></a>
         <a class="btn btn--ghost btn--lg" href="#how-it-works" data-cta="hero_secondary" data-secondary-cta>See How It Works</a>
@@ -95,7 +95,7 @@ require __DIR__ . '/includes/header.php';
   <div class="container">
     <div class="trust" data-reveal>
       <span class="trust__item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> One-time purchase, no subscription</span>
-      <span class="trust__item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Self-hosted — your data, your database</span>
+      <span class="trust__item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Self-deployed on your own cloud accounts</span>
       <span class="trust__item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18 22 12 16 6"/><path d="M8 6 2 12 8 18"/></svg> Full source code &amp; documentation</span>
       <span class="trust__item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2 11 13"/><path d="M22 2 15 22 11 13 2 9z"/></svg> 7-day email setup support</span>
     </div>
@@ -123,13 +123,13 @@ require __DIR__ . '/includes/header.php';
   <div class="container split" data-reveal>
     <div class="split__copy">
       <p class="section__eyebrow">The solution</p>
-      <h2>One system, running on your own infrastructure</h2>
-      <p class="section__lead">SoloLedge is a single web app for your freelance finances. You deploy it to your own Supabase database and your own host, sign in, and every client, invoice, payment and expense lives in one place — with the dashboard doing the arithmetic you'd otherwise redo by hand.</p>
+      <h2>One system, running on your own cloud accounts</h2>
+      <p class="section__lead">SoloLedge is a single web app for your freelance finances. You deploy it to your own Supabase project and your own host, sign in, and every client, invoice, payment and expense lives in one place — with the dashboard doing the arithmetic you'd otherwise redo by hand.</p>
       <ul class="checklist">
         <li>Money received vs. money still owed, always current</li>
         <li>A safe-to-spend figure with every term shown</li>
         <li>Multi-currency invoicing with FX rate and fees preserved</li>
-        <li>Your data in a database only you can access</li>
+        <li>Your data in a Supabase project only you control</li>
       </ul>
     </div>
     <div class="split__media" data-screenshot="solution-cashflow">
@@ -178,7 +178,7 @@ require __DIR__ . '/includes/header.php';
         ['TDS records', 'Record TDS deducted by clients per financial year with certificate references and a matched flag. Record-keeping only — no rates asserted by the app.'],
         ['GST records', 'Per-record client country, supply type, GST treatment, taxable value and CGST/SGST/IGST split, with the required "confirm with a professional" disclaimer shown in-app.'],
         ['Cash flow', 'Opening and closing cash, a six-month money-in / money-out view, 30/60/90-day receivables aging and a configurable reserves list.'],
-        ['Reports &amp; CSV export', 'Revenue and expenses by month, profitability by client, expenses by category, TDS and GST summaries, and CSV export for every major table.'],
+        ['Reports &amp; CSV export', 'Revenue and expenses by month, revenue &amp; effective rate by client, expenses by category, TDS and GST summaries, and CSV export for every major table.'],
         ['Onboarding wizard', 'A skippable first-run wizard for business name, base currency, GST registration, financial-year start and reserve assumptions — all editable later.'],
         ['Light &amp; dark, mobile-ready', 'A responsive light/dark interface: full sidebar on desktop, bottom navigation on mobile, tabular-figure alignment for money.'],
       ];
@@ -212,7 +212,7 @@ require __DIR__ . '/includes/header.php';
         ['03-income-dark', 1600, 1000, 'Payments', 'Payments across all invoices — date, client, invoice, method, gross and net received, including a foreign-currency payment.'],
         ['04-expenses-dark', 1600, 1000, 'Expenses', 'Expenses with category, business-use percentage and a labelled deductible-amount estimate.'],
         ['06-clients-dark', 1600, 1000, 'Clients', 'Clients list with status, revenue and outstanding balance per client.'],
-        ['07-reports-dark', 1600, 1733, 'Reports', 'Reports: revenue and expenses by month, profitability by client, and CSV export tabs.'],
+        ['07-reports-dark', 1600, 1733, 'Reports', 'Reports: revenue and expenses by month, revenue and effective rate by client, and CSV export tabs.'],
         ['09-cash-flow-dark', 1600, 1265, 'Cash flow', 'Cash flow: six-month money-in / money-out chart, receivables aging and a reserves list.'],
         ['08-settings-dark', 1600, 1875, 'Settings', 'Settings: profile, base currency, financial year, GST registration, theme, demo data and CSV export.'],
       ];
@@ -332,7 +332,7 @@ require __DIR__ . '/includes/header.php';
           <li>7-day email setup support</li>
         </ul>
         <a class="btn btn--primary btn--block btn--lg" href="<?= e($CHECKOUT) ?>" data-cta="pricing" rel="noopener"><?= e(sl_cta_label()) ?></a>
-        <p class="text-muted text-center" style="font-size:.82rem;margin:.9rem 0 0">Checkout, payment and delivery are handled by SuperProfile. Prices in Indian rupees.</p>
+        <p class="text-muted text-center" style="font-size:.85rem;margin:.9rem 0 0">Checkout, payment and delivery are handled by SuperProfile. Prices in Indian rupees.</p>
       </div>
     </div>
     <p class="callout" data-reveal style="margin-top:1.5rem;max-width:520px">The final price and any coupon are applied at the SuperProfile checkout. This page never processes payments.</p>
@@ -413,7 +413,7 @@ require __DIR__ . '/includes/header.php';
 <section class="section cta-final">
   <div class="container" data-reveal>
     <h2>Ready to take control of your freelance finances?</h2>
-    <p class="section__lead" style="margin-inline:auto">Get SoloLedge <?= e(PRODUCT_VERSION) ?> and deploy it on your own infrastructure.</p>
+    <p class="section__lead" style="margin-inline:auto">Get SoloLedge <?= e(PRODUCT_VERSION) ?> and deploy it on your own cloud accounts.</p>
     <div class="hero__actions">
       <a class="btn btn--primary btn--lg" href="<?= e($CHECKOUT) ?>" data-cta="final" rel="noopener"><?= e(sl_cta_label()) ?></a>
       <a class="btn btn--ghost btn--lg" href="#features" data-cta="final_secondary" data-secondary-cta>Review the features</a>

@@ -46,7 +46,7 @@ CODE/
 ├── js/main.js           Nav, FAQ accordion, scroll reveal, analytics events
 │
 ├── assets/
-│   ├── brand/            JSinnovation logo (trimmed, transparent PNG) + source
+│   ├── brand/            JSinnovation logo (trimmed, transparent PNG)
 │   ├── screenshots/      Real SoloLedge screenshots, WebP, dark theme, @1600 + @800
 │   ├── icons/            Favicons / touch icons generated from the logo
 │   └── og/               Open Graph image (1200×630)
@@ -69,7 +69,7 @@ CODE/
 
 | Asset | File(s) | Notes |
 |---|---|---|
-| JSinnovation logo | `assets/brand/jsinnovation-logo.png` | Wide transparent PNG (~1036×155). `-source.png` is the untrimmed original. Keep the aspect ratio; update `width`/`height` in `includes/header.php` + `includes/footer.php` if it changes. |
+| JSinnovation logo | `assets/brand/jsinnovation-logo.png` | Wide transparent PNG (~1036×155). Keep the aspect ratio; update `width`/`height` in `includes/header.php` + `includes/footer.php` if it changes. |
 | Product screenshots | `assets/screenshots/*-dark.webp` (+ `-sm`) | Real SoloLedge screens only. Do not recolour or edit the UI. To regenerate from new PNGs, see the snippet in section 13. |
 | OG image | `assets/og/og-default.jpg` | 1200×630. |
 | Favicons | `assets/icons/icon-*.png`, `favicon.ico` | Generated from the logo. |

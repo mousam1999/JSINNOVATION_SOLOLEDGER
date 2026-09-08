@@ -20,7 +20,7 @@ require __DIR__ . '/includes/header.php';
       <h2 style="font-size:1.25rem">Next steps</h2>
       <div class="steps" style="margin-top:1rem">
         <div class="step"><span class="step__num"></span><div><h3>Check your email</h3><p>Look for the purchase confirmation and access details from the checkout platform (check spam too).</p></div></div>
-        <div class="step"><span class="step__num"></span><div><h3>Access your purchase</h3><p>Open your SoloLedge package through the purchase platform and download the source ZIP and documentation.</p></div></div>
+        <div class="step"><span class="step__num"></span><div><h3>Access your purchase</h3><p>Open your SoloLedge package through the purchase platform and download the source ZIP and documentation. The application inside is named SoloLedge <?= e(PRODUCT_VERSION) ?>; some in-app screens and files still use its original working title, "Freelancer Finance OS" — it is the same product.</p></div></div>
         <div class="step"><span class="step__num"></span><div><h3>Follow the setup guide</h3><p>Start with <code>docs/QUICK_START.md</code>, or <code>docs/DEPLOYMENT_GUIDE.md</code> for the full walkthrough.</p></div></div>
         <div class="step"><span class="step__num"></span><div><h3>Deploy and sign in</h3><p>Create your Supabase project and host, deploy, then sign up on your own instance.</p></div></div>
       </div>

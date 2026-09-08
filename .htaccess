@@ -33,7 +33,10 @@ RedirectMatch 404 ^/(includes|\.git|\.github)(/.*)?$
   # CSP: allows Google fonts, GA4/GTM, Meta Pixel and the Cloudflare/Hostinger
   # edge analytics beacon. Inline scripts are used for the tag bootstraps, so
   # 'unsafe-inline' is permitted for scripts.
-  Header always set Content-Security-Policy "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com https://www.facebook.com https://region1.google-analytics.com; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://connect.facebook.net https://static.cloudflareinsights.com; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com https://connect.facebook.net https://www.facebook.com https://cloudflareinsights.com; frame-src https://www.googletagmanager.com; form-action 'self'"
+  # frame-src / form-action include https://www.facebook.com because the Meta
+  # Pixel (fbevents.js) delivers some events via a hidden form POST + iframe to
+  # facebook.com in addition to the image beacon. No other origin is widened.
+  Header always set Content-Security-Policy "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com https://www.facebook.com https://region1.google-analytics.com; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://connect.facebook.net https://static.cloudflareinsights.com; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com https://connect.facebook.net https://www.facebook.com https://cloudflareinsights.com; frame-src https://www.googletagmanager.com https://www.facebook.com; form-action 'self' https://www.facebook.com"
 </IfModule>
 
 # ---- MIME types ----
