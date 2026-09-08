@@ -68,7 +68,7 @@ $canonical    = sl_url($PAGE_PATH === '/' ? '' : ltrim($PAGE_PATH, '/'));
 <noscript><link rel="stylesheet"
   href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"></noscript>
 
-<link rel="stylesheet" href="/css/main.css?v=1">
+<link rel="stylesheet" href="/css/main.css?v=2">
 
 <?php if (!empty($PAGE_JSONLD)) echo $PAGE_JSONLD; ?>
 <?php if (!empty($EXTRA_HEAD)) echo $EXTRA_HEAD; ?>
@@ -102,7 +102,7 @@ t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,do
     hasGA: <?= (GTM_ID !== '' || GA4_MEASUREMENT_ID !== '') ? 'true' : 'false' ?>
   };
 </script>
-<script src="/js/main.js?v=1" defer></script>
+<script src="/js/main.js?v=2" defer></script>
 </head>
 <body class="<?= e($BODY_CLASS) ?>">
 <?php if (GTM_ID !== ''): ?>

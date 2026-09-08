@@ -135,6 +135,26 @@
       Array.prototype.forEach.call(shots, function (el) { sio.observe(el); });
     }
 
+    /* -------- Sticky CTA bar: show after the hero, hide over the final CTA -------- */
+    var sticky = document.querySelector("[data-sticky-cta]");
+    if (sticky) {
+      var finalCtaVisible = false;
+      var finalCta = document.querySelector(".cta-final");
+      if (finalCta && "IntersectionObserver" in window) {
+        new IntersectionObserver(function (es) {
+          finalCtaVisible = es[0].isIntersecting;
+          updateSticky();
+        }, { threshold: 0.15 }).observe(finalCta);
+      }
+      var updateSticky = function () {
+        var pastHero = window.scrollY > window.innerHeight * 0.7;
+        sticky.classList.toggle("is-shown", pastHero && !finalCtaVisible);
+      };
+      window.addEventListener("scroll", updateSticky, { passive: true });
+      window.addEventListener("resize", updateSticky, { passive: true });
+      updateSticky();
+    }
+
     /* -------- Pricing view + section milestones -------- */
     var pricing = document.getElementById("pricing");
     if (pricing && "IntersectionObserver" in window) {

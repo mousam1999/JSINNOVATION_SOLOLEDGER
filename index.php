@@ -421,8 +421,11 @@ require __DIR__ . '/includes/header.php';
   </div>
 </section>
 
-<div class="sticky-cta">
-  <a class="btn btn--primary btn--block" href="<?= e($CHECKOUT) ?>" data-cta="sticky_mobile" rel="noopener"><?= e(sl_cta_label()) ?></a>
+<div class="sticky-cta" data-sticky-cta>
+  <div class="sticky-cta__inner">
+    <p class="sticky-cta__text"><strong>SoloLedge <?= e(PRODUCT_VERSION) ?></strong> — one-time <?= e(sl_price_launch()) ?> <span style="text-decoration:line-through"><?= e(sl_price_regular()) ?></span> · 7-day setup support</p>
+    <a class="btn btn--primary btn--block" href="<?= e($CHECKOUT) ?>" data-cta="sticky" rel="noopener"><?= e(sl_cta_label()) ?></a>
+  </div>
 </div>
 
 <?php require __DIR__ . '/includes/footer.php'; ?>
